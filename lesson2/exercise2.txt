@@ -1,0 +1,20 @@
+# I had a few other things I wanted to add (so I just included them in
+# the initial 'git add')
+$ git add lesson* bonus1/ mkdirs.sh README.md LICENSE .gitignore
+
+# Commit the files
+$ git commit -m "Initial commit of per-lesson directories"
+[main (root-commit) d9ae421] Initial commit of per-lesson directories
+ 12 files changed, 384 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 LICENSE
+ create mode 100644 README.md
+ create mode 100644 bonus1/not-empty
+ create mode 100644 lesson1/not-empty
+ create mode 100644 lesson2/not-empty
+ create mode 100644 lesson3/not-empty
+ create mode 100644 lesson4/not-empty
+ create mode 100644 lesson5/not-empty
+ create mode 100644 lesson6/not-empty
+ create mode 100644 lesson7/not-empty
+ create mode 100755 mkdirs.sh

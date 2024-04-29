@@ -1,0 +1,20 @@
+
+$ git status
+On branch main
+nothing to commit, working tree clean
+
+
+# Your commit object will be different (different author and different
+# timestamp)
+$ git log
+commit d9ae421f46ee88df49eb363f54d9baf77a975aca (HEAD -> main)
+Author: Kirk Byers <ktbyers@twb-tech.com>
+Date:   Mon Apr 29 14:32:07 2024 -0700
+
+    Initial commit of per-lesson directories
+
+
+# Your commit object will be different (different author and different
+# timestamp)
+$ git log --oneline
+d9ae421 (HEAD -> main) Initial commit of per-lesson directories

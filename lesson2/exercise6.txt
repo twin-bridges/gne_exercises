@@ -1,0 +1,28 @@
+$ git rm not-empty 
+rm 'lesson2/not-empty'
+
+
+# I have some other changes (so you can see reference solutions for the
+# exercises).
+$ git status
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	deleted:    not-empty
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	exercise2.txt
+	exercise3.txt
+	exercise4.txt
+	exercise5.txt
+
+
+$ ls not-empty
+ls: cannot access not-empty: No such file or directory
+
+
+$ git commit -m "Remove lesson2/not-empty file"
+[main 4b46a05] Remove lesson2/not-empty file
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ delete mode 100644 lesson2/not-empty

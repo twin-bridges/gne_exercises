@@ -1,0 +1,49 @@
+
+# How many files in the Git object store (linux/unix 'find' command)
+$ cd ~/gne_test1
+$ find .git/objects/ -type f | wc -l
+19
+
+
+# Only showing the last commit
+$ git log
+commit 4b46a054b616b06fdf5b5f797e76a522fed4764e (HEAD -> main)
+Author: Kirk Byers <ktbyers@twb-tech.com>
+Date:   Mon Apr 29 14:53:17 2024 -0700
+
+    Remove lesson2/not-empty file
+
+
+# Looking for '4b46a05' commit in .git/objects
+$ cd .git/objects/
+$ ls -al 4b/46a054b616b06fdf5b5f797e76a522fed4764e 
+-r--r--r-- 1 ktbyers ktbyers 178 Apr 29 14:53 4b/46a054b616b06fdf5b5f797e76a522fed4764e
+
+
+# Using 'git cat-file' to inspect the commit object
+$ git cat-file -p 4b46a054b616b06fdf5b5f797e76a522fed4764e
+tree acf88e63f9b4d09a339599bc050c2ab5dfec044a
+parent bf0511008e50022f04145024401a85ab0979dbf1
+author Kirk Byers <ktbyers@twb-tech.com> 1714427597 -0700
+committer Kirk Byers <ktbyers@twb-tech.com> 1714427597 -0700
+
+Remove lesson2/not-empty file
+
+
+# Use the output of the last command to inspect the root-tree (for that commit)
+# Note, I have a few files that you won't have (and hashes will also potentially
+# be different)
+$ git cat-file -p acf88e63f9b4d09a339599bc050c2ab5dfec044a
+100644 blob 68bc17f9ff2104a9d7b6777058bb4c343ca72609	.gitignore
+100644 blob 261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64	LICENSE
+100644 blob 6b2a5e01f44988741e2b90456239ef6934b56ae3	README.md
+040000 tree 813690a12fb3cc35df1e9213ff5bf7fae2474f13	bonus1
+040000 tree 813690a12fb3cc35df1e9213ff5bf7fae2474f13	lesson1
+040000 tree bcc3f93c4311ac276a180861f8df52870578d5ef	lesson2
+040000 tree 813690a12fb3cc35df1e9213ff5bf7fae2474f13	lesson3
+040000 tree 813690a12fb3cc35df1e9213ff5bf7fae2474f13	lesson4
+040000 tree 813690a12fb3cc35df1e9213ff5bf7fae2474f13	lesson5
+040000 tree 813690a12fb3cc35df1e9213ff5bf7fae2474f13	lesson6
+040000 tree 813690a12fb3cc35df1e9213ff5bf7fae2474f13	lesson7
+100755 blob bfd2464f70a55727b995428a1630164529b53413	mkdirs.sh
+

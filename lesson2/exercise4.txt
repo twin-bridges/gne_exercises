@@ -1,0 +1,15 @@
+
+$ git add simple.py 
+
+
+# Your commit object will have a different hash
+$ git commit -m "Adding simple.py Python script"
+[main d96bda4] Adding simple.py Python script
+ 1 file changed, 1 insertion(+)
+ create mode 100644 lesson2/simple.py
+
+
+# Your commit objects will have different hashes
+$ git log --oneline
+d96bda4 (HEAD -> main) Adding simple.py Python script
+d9ae421 Initial commit of per-lesson directories
