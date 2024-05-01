@@ -24,19 +24,19 @@ $ git commit -m "l3-feature2: commit2"
 [l3-feature2 fc3ea62] l3-feature2: commit2
  1 file changed, 1 insertion(+)
 
+# I am only showing the last 5 commits
 $ git log --oneline
 fc3ea62 (HEAD -> l3-feature2) l3-feature2: commit2
 97e6514 l3-feature2: commit1
 6c79bba (main) l3-feature1: commit2
 125d703 l3-feature1: commit1
 6a510bf (origin/main) Add lesson2 reference solutions
-4b46a05 Remove lesson2/not-empty file
-bf05110 Updating simple.py script
-d96bda4 Adding simple.py Python script
-d9ae421 Initial commit of per-lesson directories
 
 
 ####### Exercise 2c #######
+
+$ git checkout main
+Switched to branch 'main'
 
 $ vi mcast_bcast.yml 
 $ git add mcast_bcast.yml 
@@ -61,7 +61,7 @@ Merge made by the 'ort' strategy.
  1 file changed, 2 insertions(+)
 
 #### The merge immediately drops me into an editor (I just do ":wq" to
-#### save this (vim)
+#### save this in vim).
 
 Merge branch 'l3-feature2'
 # Please enter a commit message to explain why this merge is necessary,
@@ -69,6 +69,7 @@ Merge branch 'l3-feature2'
 #
 # Lines starting with '#' will be ignored, and an empty message aborts
 # the commit.
+
 
 
 ####### Exercise 2e #######
@@ -81,7 +82,7 @@ $ git branch
 $ pwd
 /home/ktbyers/gne_test1/lesson3
 
-# For some reason, I used .yaml for one file and .yml for the other (LOL)
+# For some reason, I used .yaml for one file and .yml for the other :-)
 $ ls -al *.y*
 -rw-rw-r-- 1 ktbyers ktbyers 81 May  1 11:04 ip_addresses.yaml
 -rw-rw-r-- 1 ktbyers ktbyers 39 May  1 11:00 mcast_bcast.yml
@@ -103,12 +104,12 @@ fc3ea62 (l3-feature2) l3-feature2: commit2
 125d703 l3-feature1: commit1
 
 
+####### Exercise 2f #######
 
-[netmiko_test] ktbyers@pydev2 ~/gne_test1/lesson3 
 $ git branch
   l3-feature2
 * main
 
-[netmiko_test] ktbyers@pydev2 ~/gne_test1/lesson3 
 $ git branch -d l3-feature2
 Deleted branch l3-feature2 (was fc3ea62).
+
