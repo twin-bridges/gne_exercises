@@ -1,3 +1,3 @@
-ip_addr = "192.168.1.1"
+ip_addr = input("Enter IP address: ")
 for octet in ip_addr.split("."):
     print(octet)
