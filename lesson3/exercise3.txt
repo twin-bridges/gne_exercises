@@ -1,76 +1,77 @@
 
+####### Exercise 3b #######
 
-# 3b
-[netmiko_test] ktbyers@pydev2 ~/gne_test1/lesson3 
+# You can see that I am on the 'main' branch in the 'commit'
 $ git add my_script.py 
-
-[netmiko_test] ktbyers@pydev2 ~/gne_test1/lesson3 
 $ git commit -m "Adding my_script.py to lesson3"
 [main 8eec4c5] Adding my_script.py to lesson3
  1 file changed, 3 insertions(+)
  create mode 100644 lesson3/my_script.py
 
 
-# 3c
-[netmiko_test] ktbyers@pydev2 ~/gne_test1/lesson3 
+####### Exercise 3c #######
+
 $ git branch
 * main
 
-[netmiko_test] ktbyers@pydev2 ~/gne_test1/lesson3 
+# Create and checkout the 'l3-feature3' branch
 $ git checkout -b l3-feature3 main
 M	lesson3/my_script.py
 Switched to a new branch 'l3-feature3'
 
-[netmiko_test] ktbyers@pydev2 ~/gne_test1/lesson3 
 $ git branch
 * l3-feature3
   main
 
 
-# 3d
+####### Exercise 3d #######
 
-[netmiko_test] ktbyers@pydev2 ~/gne_test1/lesson3 
 $ git add my_script.py 
 
-[netmiko_test] ktbyers@pydev2 ~/gne_test1/lesson3 
 $ git commit -m "Changing IP address in my_script.py"
 [l3-feature3 19b1e77] Changing IP address in my_script.py
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 
-# 3e / 3f
+####### Exercise 3e/3f #######
 
-[netmiko_test] ktbyers@pydev2 ~/gne_test1/lesson3 
+# Once again can see that I am on 'main' branch from the 'commit' command
 $ git add my_script.py 
 
-[netmiko_test] ktbyers@pydev2 ~/gne_test1/lesson3 
 $ git commit -m "Prompt user for IP address in my_script.py"
 [main 8a59720] Prompt user for IP address in my_script.py
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 
-# 3g
+####### Exercise 3g #######
 
-[netmiko_test] ktbyers@pydev2 ~/gne_test1/lesson3 
 $ git branch
   l3-feature3
 * main
 
-[netmiko_test] ktbyers@pydev2 ~/gne_test1/lesson3 
+# Merge conflict!
 $ git merge l3-feature3
 Auto-merging lesson3/my_script.py
 CONFLICT (content): Merge conflict in lesson3/my_script.py
 Automatic merge failed; fix conflicts and then commit the result.
 
-[netmiko_test] ktbyers@pydev2 ~/gne_test1/lesson3 
-$ git add my_script.py 
+# I here resolved the merge conflict by editing the 'my_script.py' file to be:
 
-[netmiko_test] ktbyers@pydev2 ~/gne_test1/lesson3 
+------
+ip_addr = input("Enter IP address: ")
+if not ip_addr:
+    ip_addr = "10.1.1.1"
+for octet in ip_addr.split("."):
+    print(octet)
+------
+
+
+$ git add my_script.py 
 $ git commit -m "Fixing merge conflict (lesson3)"
 [main f7bd57e] Fixing merge conflict (lesson3)
 
 
-# Ex 3h
+####### Exercise 3h #######
 
 $ git log --oneline --graph --decorate
 *   f7bd57e (HEAD -> main) Fixing merge conflict (lesson3)
@@ -89,17 +90,15 @@ $ git log --oneline --graph --decorate
 * 125d703 l3-feature1: commit1
 
 
-# Ex 3i
+####### Exercise 3i #######
 
-[netmiko_test] ktbyers@pydev2 ~/gne_test1/lesson3 
 $ git branch
   l3-feature3
 * main
 
-[netmiko_test] ktbyers@pydev2 ~/gne_test1/lesson3 
 $ git branch -d l3-feature3 
 Deleted branch l3-feature3 (was 19b1e77).
 
-[netmiko_test] ktbyers@pydev2 ~/gne_test1/lesson3 
 $ git branch
 * main
+
