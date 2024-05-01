@@ -1,0 +1,114 @@
+
+####### Exercise 2a #######
+
+# Create and checkout the 'l3-feature2' branch using a single command.
+$ git checkout -b l3-feature2 main
+Switched to a new branch 'l3-feature2'
+
+$ git branch
+* l3-feature2
+  main
+
+
+####### Exercise 2b #######
+
+$ vi ip_addresses.yaml 
+$ git add ip_addresses.yaml 
+$ git commit -m "l3-feature2: commit1"
+[l3-feature2 97e6514] l3-feature2: commit1
+ 1 file changed, 1 insertion(+)
+
+$ vi ip_addresses.yaml 
+$ git add ip_addresses.yaml 
+$ git commit -m "l3-feature2: commit2"
+[l3-feature2 fc3ea62] l3-feature2: commit2
+ 1 file changed, 1 insertion(+)
+
+$ git log --oneline
+fc3ea62 (HEAD -> l3-feature2) l3-feature2: commit2
+97e6514 l3-feature2: commit1
+6c79bba (main) l3-feature1: commit2
+125d703 l3-feature1: commit1
+6a510bf (origin/main) Add lesson2 reference solutions
+4b46a05 Remove lesson2/not-empty file
+bf05110 Updating simple.py script
+d96bda4 Adding simple.py Python script
+d9ae421 Initial commit of per-lesson directories
+
+
+####### Exercise 2c #######
+
+$ vi mcast_bcast.yml 
+$ git add mcast_bcast.yml 
+$ git commit -m "Commit in 'main' to force a 3-way merge"
+[main 40bb049] Commit in 'main' to force a 3-way merge
+ 1 file changed, 3 insertions(+)
+ create mode 100644 lesson3/mcast_bcast.yml
+
+
+
+####### Exercise 2d #######
+
+# Verify on branch 'main'
+$ git branch
+  l3-feature2
+* main
+
+# Merge l3-feature2 into 'main' ('ort' strategy is a 3-way merge here)
+$ git merge l3-feature2
+Merge made by the 'ort' strategy.  
+ lesson3/ip_addresses.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
+
+#### The merge immediately drops me into an editor (I just do ":wq" to
+#### save this (vim)
+
+Merge branch 'l3-feature2'
+# Please enter a commit message to explain why this merge is necessary,
+# especially if it merges an updated upstream into a topic branch.
+#
+# Lines starting with '#' will be ignored, and an empty message aborts
+# the commit.
+
+
+####### Exercise 2e #######
+
+# Yes, the l3-feature2 changes now exist on 'main'
+$ git branch
+  l3-feature2
+* main
+
+$ pwd
+/home/ktbyers/gne_test1/lesson3
+
+# For some reason, I used .yaml for one file and .yml for the other (LOL)
+$ ls -al *.y*
+-rw-rw-r-- 1 ktbyers ktbyers 81 May  1 11:04 ip_addresses.yaml
+-rw-rw-r-- 1 ktbyers ktbyers 39 May  1 11:00 mcast_bcast.yml
+
+$ cat ip_addresses.yaml 
+---
+- 192.168.0.0/16
+- 172.16.0.0/12
+- 10.0.0.0/8
+- 127.0.0.0/8
+- 169.254.0.0/16
+
+$ git log --oneline
+7ce6784 (HEAD -> main) Merge branch 'l3-feature2'
+40bb049 Commit in 'main' to force a 3-way merge
+fc3ea62 (l3-feature2) l3-feature2: commit2
+97e6514 l3-feature2: commit1
+6c79bba l3-feature1: commit2
+125d703 l3-feature1: commit1
+
+
+
+[netmiko_test] ktbyers@pydev2 ~/gne_test1/lesson3 
+$ git branch
+  l3-feature2
+* main
+
+[netmiko_test] ktbyers@pydev2 ~/gne_test1/lesson3 
+$ git branch -d l3-feature2
+Deleted branch l3-feature2 (was fc3ea62).

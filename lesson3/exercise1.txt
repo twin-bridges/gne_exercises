@@ -1,0 +1,98 @@
+
+####### Exercise 1a #######
+$ git branch l3-feature1
+
+$ git checkout l3-feature1
+Switched to branch 'l3-feature1'
+
+$ git branch
+* l3-feature1
+  main
+
+
+####### Exercise 1b #######
+# .git/HEAD currently points at the 'l3-feature1' branch (ref)
+$ cat .git/HEAD 
+ref: refs/heads/l3-feature1
+
+# ./git/refs/heads/l3-feature1 contains the hash of the current commit
+# (that this branch points at)
+$ cat .git/refs/heads/l3-feature1 
+6a510bfdf14c8f393b9a58ab0785812f4f28efb3
+
+# You can see this '6a510bf' commit also in 'git log'
+$ git log --oneline
+6a510bf (HEAD -> l3-feature1, origin/main, main) Add lesson2 reference solutions
+
+
+####### Exercise 1c #######
+
+# File that you change doesn't really matter (here I just add a new file)
+$ vi ip_addresses.yaml
+$ git add ip_addresses.yaml 
+$ git commit -m "l3-feature1: commit1"
+[l3-feature1 125d703] l3-feature1: commit1
+ 1 file changed, 3 insertions(+)
+ create mode 100644 lesson3/ip_addresses.yaml
+
+# Change this same file (in order to do the second commit)
+$ vi ip_addresses.yaml 
+$ git add ip_addresses.yaml 
+$ git commit -m "l3-feature1: commit2"
+[l3-feature1 6c79bba] l3-feature1: commit2
+ 1 file changed, 1 insertion(+)
+
+$ git log --oneline
+6c79bba (HEAD -> l3-feature1) l3-feature1: commit2
+125d703 l3-feature1: commit1
+6a510bf (origin/main, main) Add lesson2 reference solutions
+4b46a05 Remove lesson2/not-empty file
+bf05110 Updating simple.py script
+d96bda4 Adding simple.py Python script
+d9ae421 Initial commit of per-lesson directories
+
+
+####### Exercise 1d #######
+
+# Merge l3-feature1 into 'main' (you can see 'Fast-forward' below)
+$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+$ git merge l3-feature1
+Updating 6a510bf..6c79bba
+Fast-forward            <------------- FAST-FORWARD Merge
+ lesson3/ip_addresses.yaml | 4 ++++
+ 1 file changed, 4 insertions(+)
+ create mode 100644 lesson3/ip_addresses.yaml
+
+
+####### Exercise 1e #######
+
+# Yes, the changes from the l3-feature1 branch now exist on 'main'
+$ git branch
+  l3-feature1
+* main
+
+$ pwd
+/home/ktbyers/gne_test1/lesson3
+
+$ cat ip_addresses.yaml 
+---
+- 192.168.0.0/16
+- 172.16.0.0/12
+- 10.0.0.0/8
+
+
+####### Exercise 1f #######
+
+$ git branch
+  l3-feature1
+* main
+
+$ git branch -d l3-feature1
+Deleted branch l3-feature1 (was 6c79bba).
+
+$ git branch
+* main
+
