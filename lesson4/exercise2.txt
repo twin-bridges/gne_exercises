@@ -1,0 +1,36 @@
+
+####### Exercise 2a #######
+
+$ git checkout -b l4-testing origin/l4-testing
+branch 'l4-testing' set up to track 'origin/l4-testing'.
+Switched to a new branch 'l4-testing'
+
+
+####### Exercise 2b #######
+
+$ git branch
+* l4-testing
+  main
+
+
+####### Exercise 2c #######
+
+# Here, I only show the last five commits.
+$ git log --oneline
+89c7b24 (HEAD -> l4-testing, origin/l4-testing) Add the WELCOME.md file for Lesson4
+d754af3 (origin/main, origin/HEAD, main) Updating lesson3, exercise3.txt reference solution
+9a6024f Updating reference exercise solutions for lesson3
+a61ae98 Adding reference exercise solutions
+f7bd57e Fixing merge conflict (lesson3)
+
+$ cat lesson4/WELCOME.md 
+
+# Welcome to the lesson4, testing branch.
+
+
+####### Exercise 2d #######
+
+$ git branch -vv
+* l4-testing 89c7b24 [origin/l4-testing] Add the WELCOME.md file for Lesson4
+  main       d754af3 [origin/main] Updating lesson3, exercise3.txt reference solution
+

@@ -1,0 +1,46 @@
+
+####### Exercise 1a #######
+
+$ git clone https://github.com/twin-bridges/gne_test1 remotes_gne_test1
+Cloning into 'remotes_gne_test1'...
+remote: Enumerating objects: 82, done.
+remote: Counting objects: 100% (82/82), done.
+remote: Compressing objects: 100% (43/43), done.
+remote: Total 82 (delta 33), reused 82 (delta 33), pack-reused 0
+Receiving objects: 100% (82/82), 16.95 KiB | 913.00 KiB/s, done.
+Resolving deltas: 100% (33/33), done.
+
+
+####### Exercise 1b #######
+
+$ cd remotes_gne_test1
+$ git remote -v
+origin	https://github.com/twin-bridges/gne_test1 (fetch)
+origin	https://github.com/twin-bridges/gne_test1 (push)
+
+
+####### Exercise 1c #######
+
+$ git remote add my_remote https://github.com/twin-bridges/gne_test1
+
+$ git remote -v
+my_remote	https://github.com/twin-bridges/gne_test1 (fetch)
+my_remote	https://github.com/twin-bridges/gne_test1 (push)
+origin	https://github.com/twin-bridges/gne_test1 (fetch)
+origin	https://github.com/twin-bridges/gne_test1 (push)
+
+
+####### Exercise 1d #######
+
+$ git fetch my_remote
+From https://github.com/twin-bridges/gne_test1
+ * [new branch]      l4-testing -> my_remote/l4-testing
+ * [new branch]      main       -> my_remote/main
+
+$ git branch -r
+  my_remote/l4-testing
+  my_remote/main
+  origin/HEAD -> origin/main
+  origin/l4-testing
+  origin/main
+
