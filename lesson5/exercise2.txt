@@ -1,0 +1,17 @@
+
+####### Exercise 2 #######
+
+# I already had "origin" as I was pushing changes up to GitHub for a reference solution
+$ git remote -v
+origin	git@github.com:twin-bridges/gne_exercises (fetch)
+origin	git@github.com:twin-bridges/gne_exercises (push)
+
+# I used "jupiter-calisto" account to test/validate this exercise
+$ git remote add my_remote https://github.com/jupiter-calisto/gne_exercises
+
+$ git remote -v
+my_remote	https://github.com/jupiter-calisto/gne_exercises (fetch)
+my_remote	https://github.com/jupiter-calisto/gne_exercises (push)
+origin	git@github.com:twin-bridges/gne_exercises (fetch)
+origin	git@github.com:twin-bridges/gne_exercises (push)
+

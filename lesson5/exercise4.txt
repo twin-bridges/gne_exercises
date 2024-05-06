@@ -1,0 +1,22 @@
+
+####### Exercise 4a #######
+$ git push my_remote main
+Username for 'https://github.com': jupiter-calisto
+Password for 'https://jupiter-calisto@github.com': 
+Enumerating objects: 87, done.
+Counting objects: 100% (87/87), done.
+Compressing objects: 100% (81/81), done.
+Writing objects: 100% (87/87), 18.28 KiB | 1.66 MiB/s, done.
+Total 87 (delta 34), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (34/34), done.
+To https://github.com/jupiter-calisto/gne_exercises
+ * [new branch]      main -> main
+
+
+####### Exercise 4b #######
+
+Verify content and commit history on GitHub:
+
+Both local branch and GitHub for 'main' contained 19 commits with the latest commit being
+'a5e9e8f' (at the time that I tested this).
+

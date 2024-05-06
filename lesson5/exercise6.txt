@@ -1,0 +1,41 @@
+
+####### Exercise 6a #######
+
+# I used "origin" instead of "my_remote" as this is my GitHub central repository
+# for the course's reference solutions (you should use "my_remote" though).
+
+$ git pull origin main
+Enter passphrase for key '/home/ktbyers/.ssh/ktbyers_rsa': 
+From github.com:twin-bridges/gne_exercises
+ * branch            main       -> FETCH_HEAD
+Updating a5e9e8f..502db9d
+Fast-forward
+ lesson5/ip_addresses.yaml | 7 +++++++
+ 1 file changed, 7 insertions(+)
+ create mode 100644 lesson5/ip_addresses.yaml
+
+
+# Note, I had to "git fetch --prune my_remote" and "git fetch --prune origin" to clean-up
+# stale references for "my_remote/l5-feature1" and "origin/l5-feature1" (I had already
+# deleted these branches on GitHub).
+
+$ git log --oneline
+502db9d (HEAD -> main, origin/main) Merge pull request #1 from twin-bridges/l5-feature1
+aba7db0 Add broadcast address
+a5e9e8f Lesson4 exercises
+d754af3 Updating lesson3, exercise3.txt reference solution
+9a6024f Updating reference exercise solutions for lesson3
+a61ae98 Adding reference exercise solutions
+
+
+
+####### Exercise 6b #######
+
+$ git branch
+  l4-testing
+  l5-feature1
+* main
+
+$ git branch -d l5-feature1
+Deleted branch l5-feature1 (was aba7db0).
+
