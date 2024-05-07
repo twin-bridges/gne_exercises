@@ -1,0 +1,58 @@
+
+####### Exercise 3a #######
+
+$ git add routers.yaml 
+
+$ git commit -m "Adding routers.yaml; updating ip_addresses.yaml"
+[main de88dc7] Adding routers.yaml; updating ip_addresses.yaml
+ 2 files changed, 5 insertions(+), 1 deletion(-)
+ create mode 100644 lesson6/routers.yaml
+
+# My 'git status' was clean here except I had three unrelated, untracked files.
+
+
+####### Exercise 3b #######
+
+# Undo the last commit, return the changes from the last commit to staging.
+$ git reset --soft HEAD~1
+
+# The current state of the branch is the changes from the last commit are now
+# in the 'staged' state (you can ignore the untracked files)
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   ip_addresses.yaml
+	new file:   routers.yaml
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	exercise1.txt
+	exercise2.txt
+	exercise3.txt
+
+
+$ !1070
+git commit -m "Adding routers.yaml; updating ip_addresses.yaml"
+[main bb7c4e5] Adding routers.yaml; updating ip_addresses.yaml
+ 2 files changed, 5 insertions(+), 1 deletion(-)
+ create mode 100644 lesson6/routers.yaml
+
+[netmiko_test] ktbyers@pydev2 ~/gne_exercises/lesson6 
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 2 commits.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	exercise1.txt
+	exercise2.txt
+	exercise3.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+
