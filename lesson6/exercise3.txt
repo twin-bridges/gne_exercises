@@ -1,14 +1,46 @@
 
 ####### Exercise 3a #######
 
+# Modify an existing file
+$ vi ip_addresses.yaml 
+
+# Add a new file
+$ vi routers.yaml
+
+# One modified file and one untracked file.
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 4 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   ip_addresses.yaml
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	routers.yaml
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+# 'git add' both files.
+$ git add ip_addresses.yaml 
 $ git add routers.yaml 
 
+# 'git commit' the files
 $ git commit -m "Adding routers.yaml; updating ip_addresses.yaml"
-[main de88dc7] Adding routers.yaml; updating ip_addresses.yaml
+[main 0c38346] Adding routers.yaml; updating ip_addresses.yaml
  2 files changed, 5 insertions(+), 1 deletion(-)
  create mode 100644 lesson6/routers.yaml
 
-# My 'git status' was clean here except I had three unrelated, untracked files.
+# The working directory is now clean
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 5 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
 
 
 ####### Exercise 3b #######
@@ -17,10 +49,10 @@ $ git commit -m "Adding routers.yaml; updating ip_addresses.yaml"
 $ git reset --soft HEAD~1
 
 # The current state of the branch is the changes from the last commit are now
-# in the 'staged' state (you can ignore the untracked files)
+# in the 'staged' state.
 $ git status
 On branch main
-Your branch is ahead of 'origin/main' by 1 commit.
+Your branch is ahead of 'origin/main' by 4 commits.
   (use "git push" to publish your local commits)
 
 Changes to be committed:
@@ -28,31 +60,107 @@ Changes to be committed:
 	modified:   ip_addresses.yaml
 	new file:   routers.yaml
 
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-	exercise1.txt
-	exercise2.txt
-	exercise3.txt
+# Yes, the pending changes are there (in staged state)
+
+# Yes, we could now undo the changes using 'git restore --staged <file>'
 
 
-$ !1070
-git commit -m "Adding routers.yaml; updating ip_addresses.yaml"
-[main bb7c4e5] Adding routers.yaml; updating ip_addresses.yaml
+####### Exercise 3c #######
+
+# Re-commit the pending changes
+$ git commit -m "Adding routers.yaml; updating ip_addresses.yaml"
+[main 80a4bae] Adding routers.yaml; updating ip_addresses.yaml
  2 files changed, 5 insertions(+), 1 deletion(-)
  create mode 100644 lesson6/routers.yaml
 
-[netmiko_test] ktbyers@pydev2 ~/gne_exercises/lesson6 
+# Verify the working directory is again clean.
 $ git status
 On branch main
-Your branch is ahead of 'origin/main' by 2 commits.
+Your branch is ahead of 'origin/main' by 5 commits.
   (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+
+####### Exercise 3d #######
+
+$ git reset --mixed HEAD~1
+Unstaged changes after reset:
+M	lesson6/ip_addresses.yaml
+
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 4 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   ip_addresses.yaml
 
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
-	exercise1.txt
-	exercise2.txt
-	exercise3.txt
+	routers.yaml
 
-nothing added to commit but untracked files present (use "git add" to track)
+no changes added to commit (use "git add" and/or "git commit -a")
 
+# The '--mixed' reset undid the commit and unstaged the changes (so it
+# reverted the working directory to the state it was in before the commit
+# and before the 'git add' commands').
+
+# So '--soft' undoes the commit, but keeps the changes in staging; '--mixed'
+# undoes the commit and also reverts staging (to the state of the previous
+# commit).
+
+
+####### Exercise 3e #######
+
+# Re-add and re-commit the changes
+$ git add ip_addresses.yaml routers.yaml 
+$ git commit -m "Adding routers.yaml; updating ip_addresses.yaml"
+[main ddc985a] Adding routers.yaml; updating ip_addresses.yaml
+ 2 files changed, 5 insertions(+), 1 deletion(-)
+ create mode 100644 lesson6/routers.yaml
+
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 5 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+
+####### Exercise 3f #######
+
+$ git log --oneline
+ddc985a (HEAD -> main) Adding routers.yaml; updating ip_addresses.yaml
+1f62d32 Lesson6, ex3
+0377c6e Lesson6, ex2
+83e2f8a Lesson6, ex1
+
+# Hard reset the commit (the commit has been removed and the changes
+# we previously made are discarded from the working directory).
+$ git reset --hard HEAD~1
+HEAD is now at 1f62d32 Lesson6, ex3
+
+# Note, the blob and tree objects from the removed commit are likely still in
+# the Git object store (until they get garbage collected by Git)
+
+
+####### Exercise 3g #######
+
+# The commit 'ddc985a' (in my case) is gone...
+$ git log --oneline
+1f62d32 (HEAD -> main) Lesson6, ex3
+0377c6e Lesson6, ex2
+83e2f8a Lesson6, ex1
+
+# There are no modified or untracked files in the working directory
+# i.e. the previous changes have been removed from the working directory.
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 4 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
 
