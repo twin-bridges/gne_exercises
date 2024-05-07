@@ -1,0 +1,87 @@
+
+####### Exercise 2a #######
+
+# Currently empty 'defaultBranch'
+$ git config init.defaultBranch
+
+# Set the defaultBranch globally.
+$ git config --global init.defaultBranch main
+
+# 'main' is now the defaultBranch that will be used for 'git init'
+$ git config init.defaultBranch
+main
+
+
+####### Exercise 2b #######
+
+$ git config --list
+user.email=j.morrow@rockets.org
+user.name=Jerome Morrow
+alias.st=status
+init.defaultbranch=main
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+remote.origin.url=git@github.com:twin-bridges/gne_exercises
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+branch.main.remote=origin
+branch.main.merge=refs/heads/main
+remote.my_remote.url=https://github.com/jupiter-calisto/gne_exercises
+remote.my_remote.fetch=+refs/heads/*:refs/remotes/my_remote/*
+
+
+####### Exercise 2c #######
+
+$ git config pull.rebase false
+
+
+####### Exercise 2d #######
+
+# I made up an email address/name here
+$ cat ~/.gitconfig 
+[user]
+	email = j.morrow@rockets.org 
+	name = Jerome Morrow
+[init]
+	defaultBranch = main
+
+Note, Windows probably won't understand the ~. Per ChatGPT, you will probably need to
+execute:
+
+cd %USERPROFILE%
+
+or
+
+cd %HOMEPATH%
+
+This is from the Command Prompt. In this directory, you should have a file named
+.gitconfig which you will need to view.
+
+
+####### Exercise 2e #######
+
+# Comments are mine
+$ cat .git/config
+# The 'core' settings here were all added automatically by Git (IIRC)
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+# I have a remote named 'origin' for managing reference solutions
+[remote "origin"]
+	url = git@github.com:twin-bridges/gne_exercises
+	fetch = +refs/heads/*:refs/remotes/origin/*
+# Tracking branch for 'main' (maps to 'origin/main')
+[branch "main"]
+	remote = origin
+	merge = refs/heads/main
+# I have a remote named 'my_remote' (from lesson5)
+[remote "my_remote"]
+	url = https://github.com/jupiter-calisto/gne_exercises
+	fetch = +refs/heads/*:refs/remotes/my_remote/*
+# pull.rebase setting which we just configured
+[pull]
+	rebase = false
+
