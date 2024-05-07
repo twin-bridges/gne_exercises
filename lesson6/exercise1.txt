@@ -1,0 +1,51 @@
+
+####### Exercise 1a #######
+
+# Executed these two commands to add a commit (after creating ip_addresses.yaml)
+git add ip_addresses.yaml 
+git commit -m "Tag exercise"
+
+$ git tag -a v0.1 -m "Version 0.1"
+
+
+####### Exercise 1b #######
+$ git tag -l
+v0.1
+
+
+####### Exercise 1c #######
+
+$ git log --oneline
+983a8b7 (HEAD -> main, tag: v0.1) Tag exercise        <----- tag here
+376c063 (origin/main) Lesson5 reference solutions
+502db9d Merge pull request #1 from twin-bridges/l5-feature1
+
+
+####### Exercise 1d #######
+
+# I pushed to origin and I had a tracking branch setup, you should push to
+# 'my_remote'
+
+$ git push --tags
+Enter passphrase for key '/home/ktbyers/.ssh/ktbyers_rsa': 
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 543 bytes | 543.00 KiB/s, done.
+Total 5 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To github.com:twin-bridges/gne_exercises
+ * [new tag]         v0.1 -> v0.1
+
+
+####### Exercise 1e #######
+
+$ git tag -a test1 -m "Test tag"
+
+$ git tag -l
+test1
+v0.1
+
+$ git tag -d test1
+Deleted tag 'test1' (was f1d5d3a)
+
