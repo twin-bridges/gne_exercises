@@ -1,0 +1,74 @@
+
+####### Exercise 3a #######
+
+$ git log --oneline --graph
+*   351963c (HEAD -> main) Merge branch 'feature/show-run'
+|\  
+| * fc21498 (feature/show-run) Adding a comment to 'show_run.py' program
+| * 208cf63 Adding 'show_run.py program
+|/  
+*   65b04d3 Merge branch 'feature/proxy'    # First hard reset returns to here
+|\  
+| * a50bc2b (origin/feature/proxy, feature/proxy) Adding 'proxy.py' SSH connection program
+|/  
+* b1b6939 Lesson6, exercise3 reference solution     # Second hard reset returns to here
+* 1f62d32 Lesson6, ex3
+
+
+$ git reset --hard HEAD~1
+HEAD is now at 65b04d3 Merge branch 'feature/proxy'
+
+
+$ git reset --hard HEAD~1
+HEAD is now at b1b6939 Lesson6, exercise3 reference solution
+
+
+####### Exercise 3b #######
+
+# I had to execute a '--force' push as I repeated this process multiple
+# times (you should not require this).
+$ git push --force origin main
+Enter passphrase for key '/home/ktbyers/.ssh/ktbyers_rsa': 
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+To github.com:twin-bridges/gne_exercises
+ + 1250dbb...b1b6939 main -> main (forced update)
+
+$ git push --force origin feature/proxy
+Enter passphrase for key '/home/ktbyers/.ssh/ktbyers_rsa': 
+Everything up-to-date
+
+$ git push --force origin feature/show-run
+Enter passphrase for key '/home/ktbyers/.ssh/ktbyers_rsa': 
+Enumerating objects: 13, done.
+Counting objects: 100% (13/13), done.
+Compressing objects: 100% (9/9), done.
+Writing objects: 100% (9/9), 1.20 KiB | 1.20 MiB/s, done.
+Total 9 (delta 4), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (4/4), completed with 1 local object.
+To github.com:twin-bridges/gne_exercises
+ + a5140fe...fc21498 feature/show-run -> feature/show-run (forced update)
+
+
+####### Exercise 3c #######
+
+# 'feature/proxy' pull-request is here (it has been merged into 'main').
+https://github.com/twin-bridges/gne_exercises/pull/6
+
+
+####### Exercise 3d #######
+
+# 'feature/show-run' pull-request is here (it was squashed and merged).
+https://github.com/twin-bridges/gne_exercises/pull/5
+
+
+####### Exercise 3e #######
+
+# Here is my Insights -> Network graph (the graph has likely moved to a newer location
+# in the commit (i.e. it likely moved past the exercise)
+https://github.com/twin-bridges/gne_exercises/network
+
+# Here is my commit history (though you might need to scroll back to the 'b1b6939'
+# commit.
+https://github.com/twin-bridges/gne_exercises/commits/main/
+
+

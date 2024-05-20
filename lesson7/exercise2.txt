@@ -1,0 +1,54 @@
+
+####### Exercise 2a #######
+
+$ git checkout feature/show-run
+Switched to branch 'feature/show-run'
+
+# Rebase 'feature/show-run' from the 'main' branch
+$ git rebase main
+Successfully rebased and updated refs/heads/feature/show-run.
+
+
+####### Exercise 2b #######
+
+$ git log --oneline --graph
+* fc21498 (HEAD -> feature/show-run) Adding a comment to 'show_run.py' program #'feature/show-run'
+* 208cf63 Adding 'show_run.py program               # 'feature/show-run' commit#1 replayed
+*   65b04d3 (main) Merge branch 'feature/proxy'     # merge-commit from 'feature/proxy'
+|\  
+| * a50bc2b (origin/feature/proxy, feature/proxy) Adding 'proxy.py' SSH connection program
+|/  
+* b1b6939 Lesson6, exercise3 reference solution
+* 1f62d32 Lesson6, ex3
+
+
+####### Exercise 2c #######
+
+$ git checkout main
+Switched to branch 'main'
+Your branch and 'origin/main' have diverged,
+and have 1 and 2 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+
+$ git merge feature/show-run
+Merge made by the 'ort' strategy.
+ lesson7/show_run.py | 26 ++++++++++++++++++++++++++
+ 1 file changed, 26 insertions(+)
+ create mode 100644 lesson7/show_run.py
+
+
+####### Exercise 2d #######
+
+$ git log --oneline --graph
+*   351963c (HEAD -> main) Merge branch 'feature/show-run'
+|\  
+| * fc21498 (feature/show-run) Adding a comment to 'show_run.py' program
+| * 208cf63 Adding 'show_run.py program
+|/  
+*   65b04d3 Merge branch 'feature/proxy'
+|\  
+| * a50bc2b (origin/feature/proxy, feature/proxy) Adding 'proxy.py' SSH connection program
+|/  
+* b1b6939 Lesson6, exercise3 reference solution
+* 1f62d32 Lesson6, ex3
+

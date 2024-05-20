@@ -1,0 +1,68 @@
+
+####### Exercise 1a #######
+
+$ git config pull.rebase
+false
+
+$ git checkout -b feature/show-run main
+Switched to a new branch 'feature/show-run'
+
+# Add the program 'show_run.py'
+$ git add show_run.py 
+$ git commit -m "Adding 'show_run.py program"
+[feature/show-run b613a36] Adding 'show_run.py program
+ 1 file changed, 25 insertions(+)
+ create mode 100644 lesson7/show_run.py
+
+# Modify / add a comment to 'show_run.py' and then add/commit this modified file. 
+$ git add show_run.py 
+$ git commit -m "Adding a comment to 'show_run.py' program"
+[feature/show-run a021525] Adding a comment to 'show_run.py' program
+ 1 file changed, 1 insertion(+)
+
+
+####### Exercise 1b #######
+
+$ git checkout -b feature/proxy main
+Switched to a new branch 'feature/proxy'
+
+$ git add proxy.py 
+$ git commit -m "Adding 'proxy.py' SSH connection program"
+[feature/proxy a50bc2b] Adding 'proxy.py' SSH connection program
+ 1 file changed, 19 insertions(+)
+ create mode 100644 lesson7/proxy.py
+
+
+####### Exercise 1c #######
+
+# Set and verify that fast-forward merges are disabled
+$ git config merge.ff false
+$ git config merge.ff 
+false
+
+
+####### Exercise 1d #######
+
+$ git checkout main
+Switched to branch 'main'
+Your branch is behind 'origin/main' by 5 commits, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+
+# Merge 'feature/proxy' into the 'main' branch
+$ git merge feature/proxy
+Merge made by the 'ort' strategy.
+ lesson7/proxy.py | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
+ create mode 100644 lesson7/proxy.py
+
+
+####### Exercise 1e #######
+
+$ git log --oneline --graph
+*   65b04d3 (HEAD -> main) Merge branch 'feature/proxy'
+|\  
+| * a50bc2b (origin/feature/proxy, feature/proxy) Adding 'proxy.py' SSH connection program
+|/  
+* b1b6939 Lesson6, exercise3 reference solution
+* 1f62d32 Lesson6, ex3
+
