@@ -1,0 +1,11 @@
+---
+name: Exercise6
+on: 
+  - push
+
+jobs:
+  exercise6:
+    runs-on: "ubuntu-24.04"
+    steps:
+      - run: echo "${{ secrets.EXERCISE6 }}"
+

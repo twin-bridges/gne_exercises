@@ -1,0 +1,23 @@
+---
+name: Exercise2
+on: 
+  - push
+
+jobs:
+  exercise2:
+    runs-on: "ubuntu-24.04"
+
+    steps:
+      # Checkout this repository
+      - uses: actions/checkout@v4
+
+      # Setup the specified Python version
+      - name: "Set up Python 3.12"
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: echo "hello"
+
+      - run: python --version
+

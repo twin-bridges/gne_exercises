@@ -1,0 +1,4 @@
+setuptools
+pylama==8.4.1
+black==24.4.2
+pytest==8.2.2

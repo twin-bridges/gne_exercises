@@ -1,0 +1,29 @@
+---
+name: Exercise5b
+on: 
+  - push
+env:
+  FORCE_COLOR: 1
+  ENVIRONMENT: gh_actions
+
+jobs:
+  exercise5b:
+    runs-on: "ubuntu-24.04"
+
+    steps:
+      # Make the repository available to the runner
+      - uses: actions/checkout@v4
+
+      # Setup the specified Python version
+      - name: "Set up Python PY3.12"
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.12
+          # Enable the cache for EX5b
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r ./requirements.txt
+
