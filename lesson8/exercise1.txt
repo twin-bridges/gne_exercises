@@ -1,0 +1,38 @@
+[netmiko_test] ktbyers@pydev2 ~/gne_exercises/lesson8 
+$ touch amend.txt
+
+[netmiko_test] ktbyers@pydev2 ~/gne_exercises/lesson8 
+$ git add amend.txt 
+
+[netmiko_test] ktbyers@pydev2 ~/gne_exercises/lesson8 
+$ git commit -m "Testing commit amend"
+[main 098c05a] Testing commit amend
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 lesson8/amend.txt
+
+[netmiko_test] ktbyers@pydev2 ~/gne_exercises/lesson8 
+$ git commit --amend
+[main 85b4aff] Testing commit amend (modified)
+ Date: Tue Jul 9 12:34:23 2024 -0700
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 lesson8/amend.txt
+
+[netmiko_test] ktbyers@pydev2 ~/gne_exercises/lesson8 
+$ git log --oneline | head -4
+85b4aff Testing commit amend (modified)
+0f7ba8d Removing original ex5 solution
+17a87b1 Adding GH actions exercise solutions
+5e62741 Adding Python code for lesson7
+
+[netmiko_test] ktbyers@pydev2 ~/gne_exercises/lesson8 
+$ vi amend.txt 
+
+[netmiko_test] ktbyers@pydev2 ~/gne_exercises/lesson8 
+$ git add amend.txt 
+
+[netmiko_test] ktbyers@pydev2 ~/gne_exercises/lesson8 
+$ git commit --amend
+[main 4892d4a] Testing commit amend (modified again)
+ Date: Tue Jul 9 12:34:23 2024 -0700
+ 1 file changed, 1 insertion(+)
+ create mode 100644 lesson8/amend.txt
