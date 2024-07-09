@@ -1,0 +1,86 @@
+$ git log --oneline | head -3
+b3b78b5 rebase interactive commit3
+99cc38a rebase interactive commit2
+e658aba rebase interactive commit1
+
+$ git rebase -i HEAD~3
+
+Rebase interactive editor--select 'reword'
+----- EDITOR -----
+  1 pick e658aba rebase interactive commit1
+  2 reword 99cc38a rebase interactive commit2
+  3 pick b3b78b5 rebase interactive commit3
+------------------
+
+Editor to actually change the commit message
+----- EDITOR -----
+rebase interactive commit2 (modified)
+------------------
+
+$ git rebase -i HEAD~3
+[detached HEAD 2d343be] rebase interactive commit2 (modified)
+ Date: Tue Jul 9 12:42:46 2024 -0700
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+Successfully rebased and updated refs/heads/main.
+
+
+$ git rebase -i HEAD~3
+
+Rebase interactive editor--select 'edit'
+----- EDITOR -----
+  1 pick e658aba rebase interactive commit1
+  2 pick 2d343be rebase interactive commit2 (modified)
+  3 edit 06b5feb rebase interactive commit3
+------------------
+
+[.venv] ktbyers@pydev2 ~/gne_exercises/lesson8 
+$ git add test_file.py 
+
+[.venv] ktbyers@pydev2 ~/gne_exercises/lesson8 
+$ git commit --amend
+
+Editor to change the commit message (as part of the amend process)
+----- EDITOR -----
+1 rebase interactive commit3 (amended test_file.py)
+------------------
+
+$ git rebase --continue
+Successfully rebased and updated refs/heads/main.
+
+
+
+$ git rebase -i HEAD~3
+Rebase interactive editor--select 'squash'
+----- EDITOR -----
+  1 pick e658aba rebase interactive commit1
+  2 squash 2d343be rebase interactive commit2 (modified)
+  3 pick 6d7dd41 rebase interactive commit3 (amended test_file.py)
+
+
+----- EDITOR -----
+rebase interactive commit1 & commit2 (modified)
+
+
+$ git log --oneline | head -2
+45c93e9 rebase interactive commit3 (amended test_file.py)
+bf11eb1 rebase interactive commit1 & commit2 (modified)
+
+
+
+
+git rebase -i HEAD~3
+
+Rebase interactive editor--select 'squash'
+----- EDITOR -----
+  1 pick bf11eb1 rebase interactive commit1 & commit2 (modified)
+  2 pick 45c93e9 rebase interactive commit3 (amended test_file.py)
+  3 drop 7636b66 rebase interactive commit4
+
+$ !1050
+git rebase -i HEAD~3
+Successfully rebased and updated refs/heads/main.
+
+$ git log --oneline | head -3
+45c93e9 rebase interactive commit3 (amended test_file.py)
+bf11eb1 rebase interactive commit1 & commit2 (modified)
+fd0175b Adding simple solution for class8, ex1

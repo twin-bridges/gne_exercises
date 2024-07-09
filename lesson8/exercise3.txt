@@ -1,0 +1,71 @@
+[.venv] ktbyers@pydev2 ~/gne_exercises/lesson8 
+$ vi reflog.txt
+
+[.venv] ktbyers@pydev2 ~/gne_exercises/lesson8 
+$ git add reflog.txt 
+
+[.venv] ktbyers@pydev2 ~/gne_exercises/lesson8 
+$ git commit -m "Testing git reflog1"
+[main 205affc] Testing git reflog1
+ 1 file changed, 1 insertion(+)
+ create mode 100644 lesson8/reflog.txt
+
+[.venv] ktbyers@pydev2 ~/gne_exercises/lesson8 
+$ vi reflog.txt 
+
+[.venv] ktbyers@pydev2 ~/gne_exercises/lesson8 
+$ git add reflog.txt 
+
+[.venv] ktbyers@pydev2 ~/gne_exercises/lesson8 
+$ git commit -m "Testing git reflog2"
+[main e5bd02b] Testing git reflog2
+ 1 file changed, 1 insertion(+)
+
+[.venv] ktbyers@pydev2 ~/gne_exercises/lesson8 
+$ git log --oneline | head -4
+e5bd02b Testing git reflog2
+205affc Testing git reflog1
+45c93e9 rebase interactive commit3 (amended test_file.py)
+bf11eb1 rebase interactive commit1 & commit2 (modified)
+
+
+e5bd02b (HEAD -> main) HEAD@{0}: commit: Testing git reflog2
+205affc HEAD@{1}: commit: Testing git reflog1
+45c93e9 HEAD@{2}: rebase (finish): returning to refs/heads/main
+45c93e9 HEAD@{3}: rebase (start): checkout HEAD~3
+7636b66 HEAD@{4}: commit: rebase interactive commit4
+
+[.venv] ktbyers@pydev2 ~/gne_exercises/lesson8 
+$ git checkout -b l8_lost_commit 7636b66
+Switched to a new branch 'l8_lost_commit'
+
+[.venv] ktbyers@pydev2 ~/gne_exercises/lesson8 
+$ git log --oneline | head -3
+7636b66 rebase interactive commit4
+45c93e9 rebase interactive commit3 (amended test_file.py)
+bf11eb1 rebase interactive commit1 & commit2 (modified)
+
+[.venv] ktbyers@pydev2 ~/gne_exercises/lesson8 
+$ git diff 45c93e9 7636b66
+diff --git a/lesson8/rebase.py b/lesson8/rebase.py
+new file mode 100644
+index 0000000..696d24a
+--- /dev/null
++++ b/lesson8/rebase.py
+@@ -0,0 +1 @@
++print("Testing interactive rebasing")
+
+$ git checkout main
+Switched to branch 'main'
+Your branch is ahead of 'origin/main' by 6 commits.
+  (use "git push" to publish your local commits)
+
+[.venv] ktbyers@pydev2 ~/gne_exercises/lesson8 
+$ git branch -d l8_lost_commit
+error: The branch 'l8_lost_commit' is not fully merged.
+If you are sure you want to delete it, run 'git branch -D l8_lost_commit'.
+
+[.venv] ktbyers@pydev2 ~/gne_exercises/lesson8 
+$ git branch -D l8_lost_commit
+Deleted branch l8_lost_commit (was 7636b66).
+
